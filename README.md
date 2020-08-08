@@ -10,6 +10,8 @@
 ./scripts/installer
 ```
 
+## usage
+
 ```
 $ sugamd [target markdown file path]
 ```
