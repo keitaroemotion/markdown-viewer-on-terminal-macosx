@@ -101,16 +101,13 @@ for line in content:
                 for col in row:
                     if(len(col) < col_max_sizes[i]):
                         for j in range(col_max_sizes[i] - len(col)):
+                            pad = ' '
                             if(re.match("^\-+$", col)):
-                                if(rlflag):
-                                    col = '-' + col
-                                else:
-                                    col = col + '-'
+                                pad = '-'
+                            if(rlflag):
+                                col = pad + col
                             else:
-                                if(rlflag):
-                                    col = ' ' + col
-                                else:
-                                    col = col + ' '
+                                col = col + pad
                             rlflag = not rlflag
                     xs.append(col) 
                     i = i + 1
