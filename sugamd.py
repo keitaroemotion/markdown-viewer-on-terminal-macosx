@@ -32,7 +32,7 @@ block  = False
 indent = '' 
 table_mode = False
 
-hrline = '\n---------------------------------------------------------------------------------------------------\n'
+hrline = '---------------------------------------------------------------------------------------------------\n'
 
 records = []
 
@@ -44,7 +44,7 @@ for line in content:
 
     if(re.match("[^`]*```[^`]*", line)):
         block = not block
-        line = indent + hrline
+        line = '\n' + indent + GREEN + hrline
 
     if(not block):
         if(re.match("^#[^#].*", line)):
@@ -126,8 +126,8 @@ for line in content:
             line = re.sub('\*([^*]+)\*', BOLD + '\\1' + NORMAL, line)
         # line = re.sub('(\(http.*\))', BOLD + '\\1' + NORMAL, line).replace('(', '').replace(')', '')
 
-    if(block and not hrline):
-        line = BOLD + indent + line
+    if(block and line != hrline):
+        line = GREEN + indent + line
 
     if(not table_mode):
         print(line)
