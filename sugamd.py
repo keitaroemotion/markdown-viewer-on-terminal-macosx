@@ -44,7 +44,7 @@ for line in content:
 
     if(re.match("[^`]*```[^`]*", line)):
         block = not block
-        line = hrline
+        line = indent + hrline
 
     if(not block):
         if(re.match("^#[^#].*", line)):
@@ -127,7 +127,7 @@ for line in content:
         # line = re.sub('(\(http.*\))', BOLD + '\\1' + NORMAL, line).replace('(', '').replace(')', '')
 
     if(block and not hrline):
-        line = BOLD + line
+        line = BOLD + indent + line
 
     if(not table_mode):
         print(line)
