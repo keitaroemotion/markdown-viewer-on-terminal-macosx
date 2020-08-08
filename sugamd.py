@@ -124,7 +124,7 @@ for line in content:
             line = re.sub('`([^`]+)`', BOLD + '\\1' + NORMAL, line)
             line = re.sub('\*\*([^*]+)\*\*', BOLD + '\\1' + NORMAL, line)
             line = re.sub('\*([^*]+)\*', BOLD + '\\1' + NORMAL, line)
-        # line = re.sub('(\(http.*\))', BOLD + '\\1' + NORMAL, line).replace('(', '').replace(')', '')
+        line = re.sub('(\(http.*\))', BLUE + '\\1' + NORMAL, line)
 
     if(block and line != hrline):
         line = GREEN + indent + line
