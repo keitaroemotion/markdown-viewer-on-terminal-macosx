@@ -49,12 +49,17 @@ for line in content:
         if(re.match("^##[^#].*", line)):
             line = "\n  " + BOLD + line.strip()[2:].strip()
             painted = True
-            indent  = '  ' 
+            indent  = '    ' 
 
         if(re.match("^###[^#].*", line)):
             line = "\n    " + BOLD + line.strip()[4:].strip()
             painted = True
-            indent  = '    ' 
+            indent  = '        ' 
+
+        if(re.match("^####[^#].*", line)):
+            line = "\n    " + BOLD + line.strip()[6:].strip()
+            painted = True
+            indent  = '            ' 
 
         if(re.match("^\s*\*\s*.*", line)):
             line = indent + ' - ' + line.strip()[1:]
