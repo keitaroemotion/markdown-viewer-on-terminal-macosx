@@ -94,11 +94,12 @@ for line in content:
                     i = i + 1
             
             records_cp = []
-            rlflag = False
             for row in records:
+                rlflag = False
                 xs = []
                 i = 0
                 for col in row:
+                    col = col.replace(':', '-')
                     if(len(col) < col_max_sizes[i]):
                         for j in range(col_max_sizes[i] - len(col)):
                             pad = ' '
@@ -117,6 +118,7 @@ for line in content:
                 for col in row:
                     print(col + '|', end = '')
                 print("")
+            records = []
 
         if(not table_mode):
             line = re.sub('`([^`]+)`', BOLD + '\\1' + NORMAL, line)
