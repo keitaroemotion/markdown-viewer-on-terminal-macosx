@@ -61,14 +61,16 @@ for line in content:
             painted = True
             indent  = '            ' 
 
-        if(re.match("^\s*\*\s*.*", line)):
-            line = indent + ' - ' + line.strip()[1:]
+        if(re.match("^\s*[\*]\s+[^*]*", line)):
+            line = indent + ' - ' + BOLD + line.strip().replace('*', '')
             painted = True
 
         if(not painted and line != hrline):
             line = NORMAL + indent + line.strip()
 
         line = re.sub('`([^`]+)`', BOLD + '\\1' + NORMAL, line)
+        line = re.sub('\*\*([^*]+)\*\*', BOLD + '\\1' + NORMAL, line)
+        line = re.sub('\*([^*]+)\*', BOLD + '\\1' + NORMAL, line)
         # line = re.sub('(\(http.*\))', BOLD + '\\1' + NORMAL, line).replace('(', '').replace(')', '')
 
     if(block and not hrline):
