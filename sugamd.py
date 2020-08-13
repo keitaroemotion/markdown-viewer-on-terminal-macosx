@@ -58,12 +58,12 @@ for line in content:
             indent  = '    ' 
 
         if(re.match("^###[^#].*", line)):
-            line = "\n    " + BOLD + line.strip()[4:].strip()
+            line = "\n    " + BOLD + line.strip()[3:].strip()
             painted = True
             indent  = '        ' 
 
         if(re.match("^####[^#].*", line)):
-            line = "\n    " + BOLD + line.strip()[6:].strip()
+            line = "\n    " + BOLD + line.strip()[4:].strip()
             painted = True
             indent  = '            ' 
 
