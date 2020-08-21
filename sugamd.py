@@ -47,22 +47,22 @@ for line in content:
         line = '\n' + indent + GREEN + hrline
 
     if(not block):
-        if(re.match("^#[^#].*", line)):
+        if(re.match("^\s*#[^#].*", line)):
             line = "\n" + BOLD + line.strip()[1:].strip()
             painted = True
             indent  = '' 
 
-        if(re.match("^##[^#].*", line)):
+        if(re.match("^\s*##[^#].*", line)):
             line = "\n  " + BOLD + line.strip()[2:].strip()
             painted = True
             indent  = '    ' 
 
-        if(re.match("^###[^#].*", line)):
+        if(re.match("^\s*###[^#].*", line)):
             line = "\n    " + BOLD + line.strip()[3:].strip()
             painted = True
             indent  = '        ' 
 
-        if(re.match("^####[^#].*", line)):
+        if(re.match("^\s*####[^#].*", line)):
             line = "\n    " + BOLD + line.strip()[4:].strip()
             painted = True
             indent  = '            ' 
